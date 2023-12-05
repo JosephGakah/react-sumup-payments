@@ -7,7 +7,7 @@ export const createCheckout = async () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        checkout_reference: "CO746458", // Replace with your unique reference
+        checkout_reference: Date.now(), // Replace with your unique reference
         amount: 10,
         currency: "EUR",
         pay_to_email: "d55c40127278470ba059741cc0be81f5@developer.sumup.com",
