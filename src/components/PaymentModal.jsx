@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const SumUpPaymentForm = () => {
+const PaymentModal = ({ checkoutId }) => {
   useEffect(() => {
     // Load SumUp SDK script
     const script = document.createElement("script");
@@ -12,7 +12,7 @@ const SumUpPaymentForm = () => {
       // Initialize SumUpCard.mount when the script is loaded
       window.SumUpCard.mount({
         id: "sumup-card",
-        checkoutId: "your-checkout-id", // Replace with your actual checkout ID
+        checkoutId: checkoutId, // Replace with your actual checkout ID
         onResponse: function (type, body) {
           console.log("Type", type);
           console.log("Body", body);
@@ -24,9 +24,9 @@ const SumUpPaymentForm = () => {
     return () => {
       document.head.removeChild(script);
     };
-  }, []);
+  }, [checkoutId]);
 
   return <div id="sumup-card"></div>;
 };
 
-export default SumUpPaymentForm;
+export default PaymentModal;
